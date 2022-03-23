@@ -1,5 +1,8 @@
 ### Hi there 👋
-
+My name is Andrew Messer and I am an aspiring web developer with some prior experience in the field. 
+I am in a coding bootcamp for backend and fullstack developement and I have a background in IT support.
+I have a foundational experience in HTML, CSS and JavaScript and I am learning libraries like bootstrap, React and Node.js.
+I am excited to start a new chapter of my life and join the community of devs!
 <!--
 **amesser0228/amesser0228** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
