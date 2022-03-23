@@ -1,0 +1,41 @@
+fieldset {
+    background: lightblue;
+    padding: 5px;
+    border-radius: 2px;
+    border: 10px solid darkblue;
+}
+div {
+    margin: 10px;
+}
+legend {
+    background: rgb(44, 119, 231);
+    border-radius: 10px;
+    color: white;
+    padding: 12px;
+    text-align: center;
+}
+h1 {
+    font: bold;
+    font-family: 'Courier New', Courier, monospace;
+    border: darkblue dashed;
+    font-feature-settings: "abvf";
+    color: darkblue;
+    text-align: center;
+}
+button {
+    margin: auto;
+    color: blue;
+    text-decoration: dashed;
+    margin-right: 10px;
+}
+#submit-btn {
+    background: green;
+    color: white;
+}
+#main-border {
+    border: 5px solid darkblue;
+    padding: 5px;
+    background: lightcyan;
+    border-radius: 20px;
+    margin: 10px 10px 10px 10px;
+}
