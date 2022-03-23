@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form</title>
+    <link rel="stylesheet" href="css/survey.css" />
+    <!--<style>
+        <!-->
+</head>
+<button type="button" onclick="sayHello()">Click Me</button>
+<body>
+    <h1>Survey</h1>
+    <form action="https://us-central1-nucamp-production.cloudfunctions.net/post/formdata">
+        <input type="file" id="myFile" name="filename">
+        <input type="submit">
+      </form>
+    <br>
+       </form>
+<section id="main-border">
+        <fieldset>
+            <legend>Your Information</legend>
+            <div>
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name ="firstName" placeholder="Your First Name" />
+            </div>
+            <div>
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" placeholder="Your Last Name" />
+            </div>
+            <div>
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" placeholder="Your Email Address" />
+            </div>
+        </fieldset>
+        </div>
+        <br>
+        <fieldset>
+            <legend>Survey Questions</legend>
+            <div>
+                Favorite Sport:
+                <input type="radio" id="baseball" name="sport" value="baseball" />
+                <label for="baseball">Baseball</label>
+                <input type="radio" id="rubgy" name="sport" value="rugby" /> 
+                <label for="rubgy">Rugby</label>
+                <input type="radio" id="snowboarding" name="sport" value="snowboarding" /> 
+                <label for="snowboarding">Snowboarding</label>
+                <input type="radio" id="tennis" name="sport" value="tennis" /> 
+                <label for="tennis">Tennis</label>
+            </div>
+            <div>
+                Your Pets:
+                <input type="checkbox" id="cat" name="pets" value="cat" /> 
+                <label for="cat">Cat</label>
+                <input type="checkbox" id="dog" name="pets" value="dog" /> 
+                <label for="dog">Dog</label>
+                <input type="checkbox" id="iguana" name="pets" value="iguana" />
+                <label for="iguana">Iguana</label>
+                <input type="checkbox" id="other" name="pets" value="other" />
+                <label for="other">Other</label>
+            </div>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>Feedback</legend>
+            <div>
+                <label for="hear">How did you hear about us?</label>
+                <input type="text" id="hear" name="hear"/>
+                </div>
+                <div>
+                <label for="surveyrate">Will you rate this survey</label>
+                <input type="checkbox" id="cat" name="surveyrate" value="ca" /> 
+                <label for="0-20">0-20</label>
+                <input type="checkbox" id="dog" name="surveyrate" value="dog" /> 
+                <label for="dog">20-40</label>
+                <input type="checkbox" id="iguana" name="surveyrate" value="iguana" />
+                <label for="iguana">40-80</label>
+                <input type="checkbox" id="other" name="surveyrate" value="80-100" />
+                <label for="other">80-100</label>
+            </div> 
+        </fieldset>
+</section>
+        <br>
+    </form>
+    <script>
+        function sayHello() {
+        alert("You clicked, yay!");
+        }
+    </script>
+</body>
+</html>
