@@ -1,0 +1,52 @@
+###IPv4 Address and Host Name Change Script Written by Andrew Messer###
+
+# Checks if the script is running as an administrator
+$isAdmin = ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")
+
+# If the script is not running as an administrator, re-launches the script with elevated privileges #
+if (-not $isAdmin) {
+    Start-Process powershell.exe "-File `"$PSCommandPath`"" -Verb RunAs
+    exit
+}
+
+$macAddresses = @(
+#Enter MAC Addresses Here)
+
+$ipAddresses = @(
+#Enter IPv4 Addresses Here)
+
+$computerNames = @(
+#Enter Host Names Here)
+
+
+
+#Sets IP Address
+for ($i = 0; $i -lt $macAddresses.Count; $i++) {
+    $networkAdapter = Get-WmiObject -Class Win32_NetworkAdapter | Where-Object {$_.MacAddress -eq $macAddresses[$i]}
+
+if ($networkAdapter) {
+        $newipAddress = $ipAddresses[$i]
+        $adapter = Get-NetAdapter -Name #"Enter network alias here"
+        $ipConfig = $adapter | Get-NetIPConfiguration
+        $ipConfig | Remove-NetIPAddress -Confirm:$false
+        $ipConfig | New-NetIPAddress -AddressFamily IPv4 -IPAddress $newipAddress -PrefixLength 24
+        Write-Host "IP Address $newipAddress has been set for MAC adrress $($macAddresses[$i])." -ForegroundColor Yellow -BackgroundColor Black
+    }
+}
+
+#Sets Computer Name
+for ($i = 0; $i -lt $macAddresses.Count; $i++) {
+    $networkAdapter = Get-WmiObject -Class Win32_NetworkAdapter | Where-Object {$_.MacAddress -eq $macAddresses[$i]}
+    
+    if ($networkAdapter) {
+        $newComputerName = $computerNames[$i]
+        Rename-Computer -NewName $newComputerName #-Restart
+        write-host "Computer name changed to $newComputerName for MAC address $($macAddresses[$i]) successfully." -ForegroundColor Yellow -BackgroundColor Black
+        #Add-Type -AssemblyName PresentationCore,PresentationFramework
+      #$Result = [System.Windows.MessageBox]::Show("Computer name changed to $newComputerName for MAC address $($macAddresses[$i]) successfully.", "LGP Editor",0,0)
+        Start-Sleep -Seconds 5
+        Restart-Computer
+    } else {
+        "No network adapter found with MAC address $($macAddresses[$i])."
+    }
+}
