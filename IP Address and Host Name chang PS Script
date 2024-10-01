@@ -11,12 +11,15 @@ if (-not $isAdmin) {
 
 $macAddresses = @(
 #Enter MAC Addresses Here)
+);
 
 $ipAddresses = @(
 #Enter IPv4 Addresses Here)
+);
 
 $computerNames = @(
 #Enter Host Names Here)
+);
 
 
 
@@ -50,3 +53,6 @@ for ($i = 0; $i -lt $macAddresses.Count; $i++) {
         "No network adapter found with MAC address $($macAddresses[$i])."
     }
 }
+
+#Add a new feature to the script
+$networkAdapter = Get-WmiObject -Class Win32_NetworkAdapter | Where-Object {$_.MacAddress -eq $macAddresses[$i]}
