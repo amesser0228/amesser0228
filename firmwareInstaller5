@@ -1,0 +1,74 @@
+# Checks if the script is running as an administrator
+$isAdmin = ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")
+
+# If the script is not running as an administrator, re-launches the script with elevated privileges #
+if (-not $isAdmin) {
+    Start-Process powershell.exe "-File `"$PSCommandPath`"" -Verb RunAs
+    exit
+}
+
+$firmwareVersion = (Get-CimInstance -ClassName CIM_BIOSElement).SMBIOSBIOSVersion
+$computerModel = Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty Model
+$firmwareToInstall = "Precision_3571_Latitude_5531_1.19.0.exe"
+$activity = "Installing 5531 Firmware: $firmwareToInstall"
+
+Write-Host "Checking computer Firmware and Model. Please wait..."
+Start-Sleep -Seconds 5
+
+if($firmwareVersion -eq "1.19.0" -and $computerModel -eq "Latitude 5531"){
+    Write-Host "Firmware Version: $firmwareVersion"
+    Write-Host "Computer Model: $computerModel"
+    Start-Sleep -Seconds 3
+    Write-Host "Installing $firmwareToInstall..."
+    Start-Process -FilePath "G:\Firmware\Precision_3571_Latitude_5531_1.19.0"/s
+    
+   
+    Start-Sleep -Seconds 10
+
+
+    Write-Progress -Activity $activity -Status "Progress" -PercentComplete 0
+
+    Start-Sleep -Seconds 10
+
+    Write-Progress -Activity $activity -Status "Progress" -PercentComplete 20
+
+    Start-Sleep -Seconds 10
+
+    Write-Progress -Activity $activity -Status "Progress" -PercentComplete 30
+
+    Start-Sleep -Seconds 10
+
+    Write-Progress -Activity $activity -Status "Progress" -PercentComplete 50
+
+    Start-Sleep -Seconds 10
+
+    Write-Progress -Activity $activity -Status "Progress" -PercentComplete 80
+
+    Start-Sleep -Seconds 10
+
+    Write-Progress -Activity $activity -Status "Progress" -PercentComplete 100
+
+    Start-Sleep -Seconds 5
+
+    Clear-Host
+
+    write-host ""
+    write-host ""
+    write-host ""
+    write-host ""
+    write-host ""
+    write-host ""
+    write-host ""
+    write-host ""
+
+    Write-Warning "Restarting to flash Firmware. *DO NOT TURN OFF THE COMPUTER*"
+
+    Start-Sleep -Seconds 10
+
+    #Restart-Computer
+}
+else {
+    write-host "Firmware is up to date. `nFirmware version: $firmwareVersion"
+    Start-Sleep -Seconds 10
+    
+}
