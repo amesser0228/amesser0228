@@ -1,10 +1,9 @@
-### Hello 👋
-My name is Andrew Messer and I am a novice software developer with a few skills in the field. 
-I have professional experience developing event-driven software by creating several applications to support my team, gaining experience with C# in in the .NET architecture.
-I also have professional experience leveraging Windows scripting languages to develop solutions with PowerShell and Batch.
-I have intermediate experience in web development including JavaScript, Angular and CSS.
-I'm completing my bachelor's in software engineering at Western Governors University and I will graduate by December 2025.
-
+<H1>Hi, I am Andrew Messer</H1>
+<HR>
+<p>
+I am an aspriring software engineer. I am passionate about technology and the bridge it creates for everyone to access the services they need.
+</p>
+<H2>Take a look at my <a href="https://messerunlimited.w3spaces.com/">website</a></H2>
 <!--
 **amesser0228/amesser0228** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
