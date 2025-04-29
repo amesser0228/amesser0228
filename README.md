@@ -1,5 +1,4 @@
 <H1>Hi, I am Andrew Messer</H1>
-<HR>
 <p>
 I am an aspriring software engineer. I am passionate about technology and the bridge it creates for everyone to access the services they need.
 </p>
